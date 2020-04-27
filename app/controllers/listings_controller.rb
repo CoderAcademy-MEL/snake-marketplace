@@ -15,7 +15,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
-      redirect_to root_path
+      redirect_to @listing
     else
       render :new
     end 

@@ -1,0 +1,27 @@
+.listings-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.listings-form input[type=text] {
+  width: 100%;
+  height: 25px;
+  border: 1px solid black;
+  font-size: 20px;
+}
+
+.listings-form select {
+  height: 25px;
+  border: 1px solid orangered;
+}
+
+.listings-form label {
+  font-size: 20px;
+  margin: 10px 0px;
+}
+
+.listings-form input[type=submit] {
+  margin: 20px 0px;
+  border: 1px solid black;
+  height: 30px;
+}

@@ -1,0 +1,19 @@
+nav {
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+nav a {
+  font-size: 25px;
+  color: orangered;
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  nav a {
+    font-size: 18px;
+  }
+}
