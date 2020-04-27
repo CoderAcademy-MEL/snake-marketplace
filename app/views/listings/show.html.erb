@@ -1,0 +1,8 @@
+<h1><%= @listing.title %></h1>
+<p><%= @listing.description %></p>
+
+<% if @listing.picture.attached? %>
+  <%= image_tag @listing.picture.service_url %>
+<% end %>
+
+<%= link_to "Delete a snake", listing_path(@listing.id), method: :delete %>

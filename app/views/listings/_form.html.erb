@@ -5,5 +5,7 @@
   <%= form.text_field :description %>
   <%= form.label :breeds %>
   <%= form.collection_select(:breed_id, Breed.all, :id, :name) %>
+  <%= form.label :picture %> 
+  <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
   <%= form.submit %>
 <% end %>
