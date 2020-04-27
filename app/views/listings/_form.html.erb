@@ -1,0 +1,9 @@
+<%= form_with model: listing, local: true do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+  <%= form.label :breeds %>
+  <%= form.collection_select(:breed_id, Breed.all, :id, :name) %>
+  <%= form.submit %>
+<% end %>
