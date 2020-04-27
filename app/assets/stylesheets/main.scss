@@ -1,7 +1,17 @@
-.background {
-  height: 400px;
-  width: 400px;
-  background: url(image-path("cobra.jpg"));
-  background-size: cover;
-  background-position: center;
+.listing {
+  border: 1px solid black;
+}
+
+.listings-link {
+  color: black;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+.listings-link:hover {
+  border-bottom: 1px solid black;
+}
+
+.snake-logo {
+  font-size: 100px;
 }

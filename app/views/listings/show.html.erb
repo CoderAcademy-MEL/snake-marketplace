@@ -5,4 +5,6 @@
   <%= image_tag @listing.picture.service_url %>
 <% end %>
 
+<%= link_to "Edit #{@listing.title}", edit_listing_path(@listing.id) %>
+
 <%= link_to "Delete a snake", listing_path(@listing.id), method: :delete %>

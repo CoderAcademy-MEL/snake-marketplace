@@ -1,0 +1,10 @@
+<% @listings.each do |listing| %>
+  <%= link_to listing_path(listing.id) do %>
+    <div class="listing">
+      <h3>Title: <%= listing.title %></h3>
+      <p>Description: <%= listing.description %></p>
+      <p>Breed: <%= listing.breed.name %></p>
+      <%= image_tag listing.picture.service_url if listing.picture.attached? %>
+    </div>
+  <% end %>
+<% end %>
