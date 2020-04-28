@@ -19,14 +19,12 @@ class ListingsController < ApplicationController
   end
 
   def create
-    # @listing = current_user.listings.build(listing_params)
-    @listing = Listing.new(listing_params)
-    @listing.user_id = current_user.id
-    if @listing.save
+    @listing = current_user.listings.create(listing_params)
+    if @listing.errors.any?
+      render :new
+    else
       flash[:success] = "You successfully created a new listing!"
       redirect_to @listing
-    else
-      render :new
     end 
   end
 
