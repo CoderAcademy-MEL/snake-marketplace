@@ -1,30 +1,14 @@
+require_relative "data/listings"
+
+puts "seeding breeds"
+
 Snake.names.each do |name|
   Breed.create(name: name.downcase)
-  puts "#{name} created"
 end
 
-snakes = [
-  {
-    title: "conbra kai",
-    description: "really scary snake",
-    breed_id: 29
-  },
-  {
-    title: "toby",
-    description: "an awesome boy",
-    breed_id: 117
-  },
-  {
-    title: "glen",
-    description: "a beautiful boy",
-    breed_id: 50
-  },
-  {
-    title: "jake",
-    description: "my name rhymes ",
-    breed_id: 16
-  }
-]
+puts "successfully seeded breeds ✅"
+
+puts "seeding listings"
 
 snakes.each do |snake|
   random_num = rand(1..3)
@@ -35,3 +19,7 @@ snakes.each do |snake|
     content_type: "image/jpg"
   )
 end 
+
+puts "successfully seeded listings ✅"
+
+puts "seed file done 🐍"
