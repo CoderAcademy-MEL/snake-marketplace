@@ -3,6 +3,11 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    if !session[:count]  
+      session[:count] = 1
+    else
+      session[:count] += 1
+    end
   end
 
   def show
@@ -15,6 +20,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
+      flash[:success] = "You successfully created a new listing!"
       redirect_to @listing
     else
       render :new
