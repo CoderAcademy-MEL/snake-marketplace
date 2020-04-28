@@ -4,7 +4,7 @@
 }
 
 .listings-form input[type=text] {
-  width: 100%;
+  display: block;
   height: 25px;
   border: 1px solid black;
   font-size: 20px;
@@ -21,7 +21,10 @@
 }
 
 .listings-form input[type=submit] {
+  display: block;
   margin: 20px 0px;
   border: 1px solid black;
-  height: 30px;
+  padding: 20px 0px;
+  font-size: 20px;
+  -webkit-appearance: none;
 }
