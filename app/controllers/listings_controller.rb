@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @listings = Listing.all
@@ -18,7 +19,9 @@ class ListingsController < ApplicationController
   end
 
   def create
+    # @listing = current_user.listings.build(listing_params)
     @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
     if @listing.save
       flash[:success] = "You successfully created a new listing!"
       redirect_to @listing

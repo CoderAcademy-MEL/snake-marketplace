@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "snake_names", "~> 0.0.0"
 
 gem "aws-sdk-s3", "~> 1.63"
+
+gem "devise", "~> 4.7"
