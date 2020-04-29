@@ -1,3 +1,5 @@
+<%= render "shared/form-errors", resource: listing %>
+
 <%= form_with model: listing, local: true, class: "listings-form" do |form| %>
   <%= form.label :title %>
   <%= form.text_field :title %>
