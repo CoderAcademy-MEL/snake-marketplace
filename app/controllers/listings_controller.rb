@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @listings = Listing.all
@@ -33,7 +34,7 @@ class ListingsController < ApplicationController
 
   def update
     if @listing.update(listing_params)
-      redirect_to root_path
+      redirect_to listing_path(@listing.id)
     else
       render :edit
     end 

@@ -1,3 +1,7 @@
+<% if flash[:authorization_error] %>
+  <p><%= flash[:authorization_error] %></p>
+<% end %>
+
 <div class="content">
   <% @listings.each do |listing| %>
     <%= link_to listing_path(listing.id) do %>
