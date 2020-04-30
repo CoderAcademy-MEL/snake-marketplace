@@ -6,11 +6,9 @@
     <div class="header">
       <h1>SnakeMarketplace</h1>
       <h3>Parseltongue speakers only 🧙‍♀️</h3>
-      <%= link_to new_user_registration_path do %>
-        <div class="sign-up-button">
-          <button>Sign up</button>
-        </div>
-      <% end %>
+      <div class="sign-up-button">
+        <%= button_to "Sign up", new_user_registration_path, method: :get %>
+      </div>
     </div>
   </div>
 </div>

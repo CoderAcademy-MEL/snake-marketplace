@@ -8,6 +8,12 @@ end
 
 puts "successfully seeded breeds ✅"
 
+puts "seeding users"
+
+user = User.create(email: "h@gmail.com", password: "password")
+
+puts "user successfully created ✅"
+
 puts "seeding listings"
 
 snakes.each do |snake|
