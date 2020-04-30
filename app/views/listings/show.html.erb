@@ -10,7 +10,7 @@
 </div>
 
 <div class="show-edit-delete">
-  <% if current_user.id == @listing.user_id %>
+  <% if current_user && current_user.id == @listing.user_id %>
     <%= link_to "Edit", edit_listing_path(@listing.id) %>
     <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
   <% end %>
