@@ -1,3 +1,7 @@
+<% if  flash[:unauthorized] %>
+  <p><%= flash[:unauthorized] %></p>
+<% end %>
+
 <div class="content">
   <% @listings.each do |listing| %>
     <%= link_to listing_path(listing.id) do %>
