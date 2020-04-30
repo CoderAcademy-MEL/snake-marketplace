@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_user_listing, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @listings = Listing.all
@@ -53,14 +53,5 @@ class ListingsController < ApplicationController
 
   def set_listing 
     @listing = Listing.find(params[:id])
-  end 
-
-  def set_user_listing
-    id = params[:id]
-    @listing = current_user.listings.find_by_id(id)
-    if @listing == nil
-      flash[:unauthorized] = "Not authorized! ❌"
-      redirect_to listings_path
-    end
   end
 end

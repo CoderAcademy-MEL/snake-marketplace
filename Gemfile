@@ -58,3 +58,5 @@ gem "snake_names", "~> 0.0.0"
 gem "aws-sdk-s3", "~> 1.63"
 
 gem "devise", "~> 4.7"
+
+gem "cancancan", "~> 3.1"
