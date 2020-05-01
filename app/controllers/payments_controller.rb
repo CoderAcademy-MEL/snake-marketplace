@@ -1,9 +1,5 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
-<<<<<<< HEAD
-  
-  def success 
-=======
   def success 
     @listing = Listing.find(params[:listingId])
   end 
@@ -16,7 +12,6 @@ class PaymentsController < ApplicationController
     p "listing id " + listing_id
     p "user id " + user_id
     head 200
->>>>>>> 9c62899a82ec48e2c360002abd10d02d87e9d093
   end 
 
   def get_stripe_id
@@ -27,11 +22,7 @@ class PaymentsController < ApplicationController
       line_items: [{
         name: @listing.title,
         description: @listing.description,
-<<<<<<< HEAD
-        amount: 1000,
-=======
         amount: @listing.deposit,
->>>>>>> 9c62899a82ec48e2c360002abd10d02d87e9d093
         currency: 'aud',
         quantity: 1,
       }],
@@ -46,12 +37,4 @@ class PaymentsController < ApplicationController
     ).id
     render :json => {id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key)}
   end
-<<<<<<< HEAD
-
-  def webhook 
-    p params
-    head 200 
-  end 
-=======
->>>>>>> 9c62899a82ec48e2c360002abd10d02d87e9d093
 end
