@@ -2,8 +2,9 @@
   <p><%= flash[:success] %></p>
 <% end %>
 
-<h1><%= @listing.title %></h1>
-<p><%= @listing.description %></p>
+<h1>Title: <%= @listing.title %></h1>
+<p>Description: <%= @listing.description %></p>
+<p>Price: 1000</p>
 
 <div class="show-image">  
   <%= render "image-logic", listing: @listing %>
@@ -14,5 +15,8 @@
     <%= link_to "Edit", edit_listing_path(@listing.id) %>
     <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
   <% end %>
+  <%= link_to "Pay Deposit", nil, id: "stripe" %>
   <%= link_to "Back", :back %>
 </div>
+
+<%= javascript_pack_tag "stripe" %>

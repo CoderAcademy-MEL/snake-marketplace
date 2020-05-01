@@ -13,6 +13,9 @@ class ListingsController < ApplicationController
   end
 
   def show
+    # if user_signed_in?
+    #   @stripe_listing_id = stripe_session.id
+    # end
   end
 
   def new
