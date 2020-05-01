@@ -3,7 +3,8 @@
 <% end %>
 
 <div class="content">
-  <% @listings.each do |listing| %>
+  <h2>Unsold items</h2>
+  <% @listings_unsold.each do |listing| %>
     <%= link_to listing_path(listing.id) do %>
       <div class="listing">
         <div class="listing-content">      
@@ -14,7 +15,22 @@
         <div class="listing-image">      
           <%= render "image-logic", listing: listing %>
         </div>
-      </div>
+      </div>        
+    <% end %>
+  <% end %>
+  <h2>Listings sold</h2>
+  <% @listings_sold.each do |listing| %>
+    <%= link_to listing_path(listing.id) do %>
+      <div class="listing">
+        <div class="listing-content">      
+          <h3>Title: <%= listing.title %></h3>
+          <p>Description: <%= listing.description %></p>
+          <p>Breed: <%= listing.breed.name %></p>
+        </div>
+        <div class="listing-image">      
+          <%= render "image-logic", listing: listing %>
+        </div>
+      </div>        
     <% end %>
   <% end %>
 </div>

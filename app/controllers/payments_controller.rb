@@ -9,8 +9,9 @@ class PaymentsController < ApplicationController
     payment = Stripe::PaymentIntent.retrieve(payment_id)
     listing_id = payment.metadata.listing_id
     user_id = payment.metadata.user_id
-    p "listing id " + listing_id
-    p "user id " + user_id
+    listing = Listing.find(listing_id)
+    listing.sold = true
+    listing.save
     head 200
   end 
 

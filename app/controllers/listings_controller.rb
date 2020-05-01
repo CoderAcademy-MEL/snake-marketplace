@@ -4,7 +4,8 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @listings = Listing.all
+    @listings_sold = Listing.where(sold: true)
+    @listings_unsold = Listing.where(sold: false)
     if !session[:count]  
       session[:count] = 1
     else
