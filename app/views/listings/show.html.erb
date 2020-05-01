@@ -2,9 +2,15 @@
   <p><%= flash[:success] %></p>
 <% end %>
 
+<<<<<<< HEAD
 <h1>Title: <%= @listing.title %></h1>
 <p>Description: <%= @listing.description %></p>
 <p>Price: 1000</p>
+=======
+<h1><%= @listing.title %></h1>
+<p><%= @listing.description %></p>
+<p>Price: <%= number_to_currency(@listing.deposit / 100.0) %></p>
+>>>>>>> 9c62899a82ec48e2c360002abd10d02d87e9d093
 
 <div class="show-image">  
   <%= render "image-logic", listing: @listing %>
@@ -15,7 +21,13 @@
     <%= link_to "Edit", edit_listing_path(@listing.id) %>
     <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
   <% end %>
+<<<<<<< HEAD
   <%= link_to "Pay Deposit", nil, id: "stripe" %>
+=======
+  <% if current_user %>
+    <%= link_to "Pay Now 💵", "", id: "stripe"  %>
+  <% end %>
+>>>>>>> 9c62899a82ec48e2c360002abd10d02d87e9d093
   <%= link_to "Back", :back %>
 </div>
 

@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 <p>You've successfully made a payment!</p>
 <%= link_to "Go To Listings", listings_path %>
+=======
+<h1>You successfully purchased <%= @listing.title %></h1>
+
+<h3>You paid <%= number_to_currency(@listing.deposit / 100) %></h3>
+>>>>>>> 9c62899a82ec48e2c360002abd10d02d87e9d093
