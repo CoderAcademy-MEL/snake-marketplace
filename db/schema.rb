@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_035331) do
+ActiveRecord::Schema.define(version: 2020_05_04_232324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,21 @@ ActiveRecord::Schema.define(version: 2020_05_01_035331) do
 
   create_table "breeds", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cart_listings", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_cart_listings_on_cart_id"
+    t.index ["listing_id"], name: "index_cart_listings_on_listing_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,6 +89,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_035331) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_listings", "carts"
+  add_foreign_key "cart_listings", "listings"
   add_foreign_key "listings", "breeds"
   add_foreign_key "listings", "users"
 end
