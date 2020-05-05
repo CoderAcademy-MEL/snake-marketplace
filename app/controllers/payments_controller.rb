@@ -21,6 +21,7 @@ class PaymentsController < ApplicationController
       payment_method_types: ['card'],
       customer_email: current_user.email,
       line_items: [{
+        # the logic would need to be an array of hashes not just one hash
         name: @listing.title,
         description: @listing.description,
         amount: @listing.deposit,
