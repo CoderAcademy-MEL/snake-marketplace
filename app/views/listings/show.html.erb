@@ -16,9 +16,7 @@
     <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
   <% end %>
   <% if user_signed_in? && @listing.sold == false && @listing.user.id != current_user.id %>
-    <%= link_to "Pay Now 💵", "", id: "stripe"  %>
+    <%= link_to "Add to cart", carts_path(listing_id: @listing.id), method: :post  %>
   <% end %>
   <%= link_to "Back", :back %>
 </div>
-
-<%= javascript_pack_tag "stripe" %>
