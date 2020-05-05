@@ -1,0 +1,43 @@
+Project snake_marketplace {
+  database_type: "PostgreSQL"
+}
+
+Table users {
+  id bigint [pk]
+  email string
+  password string
+}
+
+Table listings {
+  id bigint [pk]
+  name varchar
+  price integer
+  description text
+  image_url text
+  breeds_id bigint
+}
+
+Table breeds {
+  id bigint [pk]
+  name varchar
+}
+
+Table carts {
+  id bigint [pk]
+  completed boolean
+  user_id bigint
+}
+
+Table cart_listings {
+  id bigint [pk]
+  listing_id bigint
+  cart_id bigint 
+}
+
+Ref: "breeds"."id" < "listings"."breeds_id"
+
+Ref: "listings"."id" < "cart_listings"."listing_id"
+
+Ref: "carts"."id" < "cart_listings"."cart_id"
+
+Ref: "users"."id" < "carts"."user_id"
