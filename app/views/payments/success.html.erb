@@ -1,3 +1,8 @@
-<h1>You successfully purchased <%= @listing.title %></h1>
+<div>
+  <% @listings.each do |listing| %>
+    <h1>You successfully purchased <%= listing.title %></h1> 
+    <h3>You paid <%= number_to_currency(listing.deposit / 100) %></h3>
+  <% end %>
+</div>
 
-<h3>You paid <%= number_to_currency(@listing.deposit / 100) %></h3>
+
